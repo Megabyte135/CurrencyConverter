@@ -2,7 +2,7 @@ namespace CurrencyConverterLib;
 
 public class StatisticManager
 {
-    public IEnumerable<ExchangeRate> ExchangeRates;
+    public IEnumerable<ExchangeRate> ExchangeRates { get; set; }
     private const int daysInMonth = 30;
     public float GetChangesPercentBetweenDates(CurrencyPair currencyPair, DateOnly firstDate, DateOnly lastDate)
     {
