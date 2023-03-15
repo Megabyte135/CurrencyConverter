@@ -1,5 +1,7 @@
-﻿namespace CurrencyConverterLib;
-using System.Linq;
+﻿using System.Linq;
+
+namespace CurrencyConverterLib;
+
 public class Currency
 {
     public int Id { get; set; }
@@ -7,14 +9,8 @@ public class Currency
     public string CurrencyCode { get; set; }
     public string CurrencySymbol { get; set; }
     public Country Country { get; set; }
-    public IEnumerable<ExchangeRate> ExchangeRates
-    {
-        get
-        {
-            return _exchangeRates;
-        }
-    }
-    private List<ExchangeRate> _exchangeRates { get; set; }
+    public IEnumerable<ExchangeRate> ExchangeRates => _exchangeRates;
+    private List<ExchangeRate> _exchangeRates;
 
     public void AddExchangeRate(ExchangeRate exchangeRate)
     {
@@ -26,7 +22,8 @@ public class Currency
 
     private bool IsValid(ExchangeRate exchangeRate)
     {
-        if (IsSameRateExist(exchangeRate))
+        bool isSameRateExist = IsSameRateExist(exchangeRate);
+        if (isSameRateExist)
         {
             return false;
         }
@@ -36,11 +33,10 @@ public class Currency
 
     private bool IsSameRateExist(ExchangeRate exchangeRate)
     {
-        if (from existingRate in ExchangeRates
-            where existingRate.Date == exchangeRate.Date 
-                  && 
-                  existingRate.CurrencyPair.IsSame(exchangeRate.CurrencyPair)
-                  select 
+        ExchangeRate? existingRate = _exchangeRates
+            .Where(u => u.Date == exchangeRate.Date)
+            .FirstOrDefault(u => u.CurrencyPair.IsSame(exchangeRate.CurrencyPair));
+        if (existingRate == null)
         {
             return false;
         }
@@ -48,6 +44,3 @@ public class Currency
         return true;
     }
 }
-_exchangeRates
-    .Where(u => u.Date == exchangeRate.Date)
-    .FirstOrDefault(u => u.CurrencyPair.IsSame(exchangeRate.CurrencyPair)) == null

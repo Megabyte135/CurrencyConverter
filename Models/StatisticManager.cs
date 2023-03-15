@@ -3,6 +3,7 @@ namespace CurrencyConverterLib;
 public class StatisticManager
 {
     public IEnumerable<ExchangeRate> ExchangeRates;
+    private const int daysInMonth = 30;
     public float GetChangesPercentBetweenDates(CurrencyPair currencyPair, DateOnly firstDate, DateOnly lastDate)
     {
         float firstDayRate = ExchangeRates
@@ -16,7 +17,6 @@ public class StatisticManager
 
     public float GetMonthChangesPercent(CurrencyPair currencyPair)
     {
-        int daysInMonth = 30;
         IEnumerable<ExchangeRate> lastThirtyExchangeRates = ExchangeRates
             .Where(u => u.CurrencyPair.IsSame(currencyPair))
             .TakeLast(daysInMonth);
