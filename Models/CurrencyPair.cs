@@ -19,7 +19,7 @@ public class CurrencyPair
         return false;
     }
 
-    private CurrencyPair GetReversedPair(CurrencyPair? currencyPair)
+    private CurrencyPair GetReversedPair(CurrencyPair currencyPair)
     {
         CurrencyPair reversedCurrencyPair = new()
         {
