@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace CurrencyConverterLib;
+namespace Domain.Models;
 
 public class Currency
 {

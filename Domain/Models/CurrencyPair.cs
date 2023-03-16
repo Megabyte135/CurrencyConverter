@@ -1,10 +1,10 @@
-namespace CurrencyConverterLib;
+namespace Domain.Models;
 
 public class CurrencyPair
 {
     public Currency BaseCurrency { get; set; }
     public Currency CounterCurrency { get; set; }
-    
+
     public bool IsSame(CurrencyPair? currencyPair)
     {
         if (currencyPair is null)

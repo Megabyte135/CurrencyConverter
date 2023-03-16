@@ -1,4 +1,4 @@
-namespace CurrencyConverterLib;
+namespace Domain.Models;
 
 public class ExchangeRate
 {

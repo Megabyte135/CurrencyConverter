@@ -1,4 +1,4 @@
-namespace CurrencyConverterLib;
+namespace Domain.Models;
 
 public class StatisticManager
 {
@@ -27,7 +27,7 @@ public class StatisticManager
 
     public float GetChangesPercent(float firstDayRate, float lastDayRate)
     {
-        float changesPercent = firstDayRate/lastDayRate*100;
+        float changesPercent = firstDayRate / lastDayRate * 100;
         return changesPercent;
     }
 }
