@@ -1,4 +1,5 @@
 using Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Services;
 
