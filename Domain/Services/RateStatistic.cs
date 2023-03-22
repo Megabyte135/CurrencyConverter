@@ -1,9 +1,10 @@
 using Domain.Models;
+using Domain.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Services;
 
-public class Statistic
+public class RateStatistic : IRateStatistic
 {
     public float GetChangesPercent(ExchangeRate firstExchangeRate, ExchangeRate secondExchangeRate)
     {
