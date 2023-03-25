@@ -1,19 +1,18 @@
 using Domain.Models;
-using Domain.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Domain.Services;
+namespace Domain.Utilities;
 
-public class RateStatistic : IRateStatistic
+public static class RateStatistic
 {
-    public float GetChangesPercent(ExchangeRate firstExchangeRate, ExchangeRate secondExchangeRate)
+    public static float GetChangesPercent(ExchangeRate firstExchangeRate, ExchangeRate secondExchangeRate)
     {
         float firstDayRate = firstExchangeRate.Rate;
         float lastDayRate = secondExchangeRate.Rate;
         return GetChangesPercent(firstDayRate, lastDayRate);
     }
 
-    public float GetChangesPercent(float firstDayRate, float lastDayRate)
+    public static float GetChangesPercent(float firstDayRate, float lastDayRate)
     {
         float changesPercent = firstDayRate / lastDayRate * 100;
         return changesPercent;

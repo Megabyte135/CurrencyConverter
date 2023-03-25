@@ -1,12 +1,13 @@
-﻿using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Domain.Models;
 
 public class Currency
 {
-    public int Id { get; set; }
-    public string FullName { get; set; }
-    public string CurrencyCode { get; set; }
-    public string CurrencySymbol { get; set; }
-    public Country Country { get; set; }
+    [Required] public int Id { get; set; }
+    [Required] public string FullName { get; set; }
+    [Required] public string CurrencyCode { get; set; }
+    [Required] public string CurrencySymbol { get; set; }
+    [Required] public Country Country { get; set; }
 }

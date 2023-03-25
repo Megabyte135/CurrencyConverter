@@ -1,11 +1,10 @@
 using Domain.Models;
-using Domain.Services.Interfaces;
 
-namespace Domain.Services;
+namespace Domain.Utilities;
 
-public class CurrencyConverterService : ICurrencyConverterService
+public static class CurrencyConverter
 {
-    public float Convert(ExchangeRate exchangeRate, float amount, bool isToReverse = false)
+    public static float Convert(ExchangeRate exchangeRate, float amount, bool isToReverse = false)
     {
         float rate;
         if (isToReverse == true)

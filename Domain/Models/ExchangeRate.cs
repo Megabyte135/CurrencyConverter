@@ -5,7 +5,7 @@ namespace Domain.Models;
 
 public class ExchangeRate
 {
-    public int Id { get; set; }
+    [Required] public int Id { get; set; }
     [Required] public DateOnly Date { get; set; } = DateOnly.FromDateTime(DateTime.Today);
     [Required] public Currency BaseCurrency { get; private set; }
     [Required] public Currency CounterCurrency { get; private set; }
