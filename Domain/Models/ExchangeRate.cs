@@ -1,16 +1,29 @@
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.Metrics;
 
 namespace Domain.Models;
 
 public class ExchangeRate
 {
     [Required] public int Id { get; set; }
-    [Required] public DateOnly Date { get; set; } = DateOnly.FromDateTime(DateTime.Today);
+    [Required] public DateOnly Date { get; private set; }
     [Required] public Currency BaseCurrency { get; private set; }
     [Required] public Currency CounterCurrency { get; private set; }
     [Required] public double Rate { get; private set; }
 
+    public ExchangeRate(Currency baseCurrency, Currency counterCurrency, double rate)
+        : this(DateOnly.FromDateTime(DateTime.Today), baseCurrency, counterCurrency, rate)
+    {
+        
+    }
+    
+    public ExchangeRate(DateOnly date, Currency baseCurrency, Currency counterCurrency, double rate)
+    {
+        Date = date;
+        BaseCurrency = baseCurrency;
+        CounterCurrency = counterCurrency;
+        Rate = rate;
+    }
+    
     public void ReverseRate()
     {
         Currency temp = BaseCurrency;

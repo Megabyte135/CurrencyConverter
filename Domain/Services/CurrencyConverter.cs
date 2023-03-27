@@ -6,7 +6,13 @@ namespace Domain.Services;
 public class CurrencyConverter : IConverter
 {
     public ExchangeRate ExchangeRate { get; set; }
-    public float Amount { get; set; }
+    public double Amount { get; set; }
+
+    public CurrencyConverter(ExchangeRate exchangeRate, float amount)
+    {
+        ExchangeRate = exchangeRate;
+        Amount = amount;
+    }
     
     public double Convert()
     {

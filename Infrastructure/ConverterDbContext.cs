@@ -18,11 +18,6 @@ namespace Infrastructure
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Data Source=Database.db");
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             new ExchangeRateEntityTypeConfiguration()

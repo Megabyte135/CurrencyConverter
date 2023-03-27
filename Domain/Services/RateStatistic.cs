@@ -8,6 +8,11 @@ public class RateStatistic : IStatistic
 {
     public IEnumerable<ExchangeRate> ExchangeRates { get; set; }
 
+    public RateStatistic(IEnumerable<ExchangeRate> exchangeRates)
+    {
+        ExchangeRates = exchangeRates;
+    }
+
     public double GetChangesPercent()
     {
         ExchangeRate firstExchangeRate = ExchangeRates.First();
