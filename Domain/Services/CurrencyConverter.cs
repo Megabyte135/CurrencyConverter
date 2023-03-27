@@ -8,7 +8,7 @@ public class CurrencyConverter : IConverter
     public ExchangeRate ExchangeRate { get; set; }
     public double Amount { get; set; }
 
-    public CurrencyConverter(ExchangeRate exchangeRate, float amount)
+    public CurrencyConverter(ExchangeRate exchangeRate, double amount)
     {
         ExchangeRate = exchangeRate;
         Amount = amount;
