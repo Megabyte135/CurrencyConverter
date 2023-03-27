@@ -5,8 +5,8 @@ namespace Domain.Services;
 
 public class CurrencyConverter : IConverter
 {
-    public ExchangeRate ExchangeRate { get; set; }
-    public double Amount { get; set; }
+    public required ExchangeRate ExchangeRate { get; set; }
+    public required double Amount { get; set; }
 
     public CurrencyConverter(ExchangeRate exchangeRate, double amount)
     {
