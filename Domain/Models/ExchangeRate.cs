@@ -9,9 +9,9 @@ public class ExchangeRate
     [Required] public DateOnly Date { get; set; } = DateOnly.FromDateTime(DateTime.Today);
     [Required] public Currency BaseCurrency { get; private set; }
     [Required] public Currency CounterCurrency { get; private set; }
-    [Required] public float Rate { get; private set; }
+    [Required] public double Rate { get; private set; }
 
-    public void ReverseRateCurrencies()
+    public void ReverseRate()
     {
         Currency temp = BaseCurrency;
         BaseCurrency = CounterCurrency;
@@ -19,7 +19,7 @@ public class ExchangeRate
         Rate = GetReversedRate();
     }
 
-    public float GetReversedRate()
+    public double GetReversedRate()
     {
         return 1 / Rate;
     }
