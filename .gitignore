@@ -1,5 +1,4 @@
-/bin
-/.idea
-/obj
-/Models/.idea
-/.vs
+**/bin
+**/.idea
+**/obj
+**/.vs
