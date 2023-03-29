@@ -35,7 +35,7 @@ namespace Infrastructure.Migrations
                     Date = table.Column<DateOnly>(type: "TEXT", nullable: false),
                     BaseCurrency = table.Column<string>(type: "TEXT", nullable: false),
                     CounterCurrency = table.Column<string>(type: "TEXT", nullable: false),
-                    Rate = table.Column<float>(type: "REAL", nullable: false)
+                    Rate = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {

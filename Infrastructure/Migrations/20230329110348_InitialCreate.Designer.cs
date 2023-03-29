@@ -11,14 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ConverterDbContext))]
-    [Migration("20230324114911_InitialCreate")]
+    [Migration("20230329110348_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.0-preview.2.23128.3");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
 
             modelBuilder.Entity("Domain.Models.Country", b =>
                 {
@@ -106,7 +106,7 @@ namespace Infrastructure.Migrations
                     b.Property<DateOnly>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<float>("Rate")
+                    b.Property<double>("Rate")
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");
