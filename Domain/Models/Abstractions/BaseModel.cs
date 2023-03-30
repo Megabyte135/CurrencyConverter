@@ -4,5 +4,5 @@ namespace Domain.Models.Abstractions;
 
 public abstract class BaseModel
 {
-    [Required] public int Id { get; set; }
+    public required int Id { get; init; }
 }
