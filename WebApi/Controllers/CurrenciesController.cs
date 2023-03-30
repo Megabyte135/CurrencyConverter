@@ -1,7 +1,5 @@
 ﻿using Domain.Models;
 using Infrastructure;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Controllers
 {

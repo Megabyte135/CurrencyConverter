@@ -93,11 +93,11 @@ public abstract class GenericConverterController<T> : ControllerBase where T : B
     [HttpDelete("{id}")]
     public virtual ActionResult Delete(int id)
     {
-        if (!IsObjectExist(id))
+        var obj = _dbSet.FirstOrDefault(u => id == u.Id);
+        if (obj == null)
         {
             return NotFound();
         }
-        var obj = _dbSet.FirstOrDefault(u => id == u.Id);
         try
         {
             _dbSet.Remove(obj);
