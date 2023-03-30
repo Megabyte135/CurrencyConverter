@@ -6,7 +6,7 @@ namespace Domain.Utilities;
 
 public class RateStatistic : IStatistic
 {
-    public required IEnumerable<ExchangeRate> ExchangeRates { get; set; }
+    public IEnumerable<ExchangeRate> ExchangeRates { get; set; }
 
     public RateStatistic(IEnumerable<ExchangeRate> exchangeRates)
     {
