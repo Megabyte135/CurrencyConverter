@@ -3,7 +3,7 @@ using Infrastructure;
 
 namespace WebApi.Controllers
 {
-    public class CurrenciesController : GenericConverterController<Currency>
+    public class CurrenciesController : GenericController<Currency>
     {
         public CurrenciesController(ConverterDbContext context)
         : base(context)

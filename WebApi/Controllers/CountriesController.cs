@@ -3,7 +3,7 @@ using Infrastructure;
 
 namespace WebApi.Controllers
 {
-    public class CountriesController : GenericConverterController<Country>
+    public class CountriesController : GenericController<Country>
     {
         public CountriesController(ConverterDbContext context)
         : base(context)

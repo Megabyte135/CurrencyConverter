@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-    public class ExchangeRatesController : GenericConverterController<ExchangeRate>
+    public class ExchangeRatesController : GenericController<ExchangeRate>
     {
         public ExchangeRatesController(ConverterDbContext context)
         : base(context)

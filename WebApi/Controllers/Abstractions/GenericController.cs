@@ -7,12 +7,12 @@ namespace WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public abstract class GenericConverterController<T> : ControllerBase where T : BaseModel
+public abstract class GenericController<T> : ControllerBase where T : BaseModel
 {
     private readonly ConverterDbContext _context;
     private readonly DbSet<T> _dbSet;
     
-    public GenericConverterController(ConverterDbContext context)
+    public GenericController(ConverterDbContext context)
     {
         _context = context;
         _dbSet = _context.Set<T>();
@@ -36,16 +36,16 @@ public abstract class GenericConverterController<T> : ControllerBase where T : B
     [HttpGet]
     public virtual ActionResult<IEnumerable<T>> GetAll()
     {
-        var result = _dbSet.ToListAsync();
+        var result = _dbSet.ToList();
         if (result == null)
         {
             return NotFound();
         }
         return Ok(result);
     }
-
+    
     [HttpPost("add")]
-    public virtual ActionResult Post(T obj)
+    public virtual ActionResult Post([FromBody] T obj)
     {
         if (!ModelState.IsValid)
         {
@@ -59,7 +59,8 @@ public abstract class GenericConverterController<T> : ControllerBase where T : B
         {
             _dbSet.Add(obj);
             _context.SaveChanges();
-            return Ok();
+            var actionName = nameof(Get);
+            return CreatedAtAction(actionName, obj);
         }
         catch (Exception ex)
         {
@@ -80,7 +81,7 @@ public abstract class GenericConverterController<T> : ControllerBase where T : B
         }
         try
         {
-            _context.Entry(obj).State = EntityState.Modified;
+            _dbSet.Update(obj);
             _context.SaveChanges();
             return Ok();
         }
