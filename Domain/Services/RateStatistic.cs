@@ -6,7 +6,7 @@ namespace Domain.Utilities;
 
 public class RateStatistic : IStatistic
 {
-    public required IEnumerable<ExchangeRate> ExchangeRates { get; set; }
+    public IEnumerable<ExchangeRate> ExchangeRates { get; set; }
 
     public RateStatistic(IEnumerable<ExchangeRate> exchangeRates)
     {
@@ -17,6 +17,10 @@ public class RateStatistic : IStatistic
     {
         ExchangeRate firstExchangeRate = ExchangeRates.First();
         ExchangeRate secondExchangeRate = ExchangeRates.Last();
+        if (firstExchangeRate == secondExchangeRate)
+        {
+            return 0;
+        }
         double firstDayRate = firstExchangeRate.Rate;
         double lastDayRate = secondExchangeRate.Rate;
         return GetChangesPercent(firstDayRate, lastDayRate);
