@@ -1,10 +1,10 @@
 using System.ComponentModel.DataAnnotations;
+using Domain.Models.Abstractions;
 
 namespace Domain.Models;
 
-public class ExchangeRate
+public class ExchangeRate : BaseModel
 {
-    [Required] public int Id { get; set; }
     [Required] public DateOnly Date { get; private set; }
     [Required] public Currency BaseCurrency { get; private set; }
     [Required] public Currency CounterCurrency { get; private set; }
