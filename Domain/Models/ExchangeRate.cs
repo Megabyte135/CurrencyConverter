@@ -21,7 +21,13 @@ public class ExchangeRate : BaseModel
         Date = date;
         BaseCurrency = baseCurrency;
         CounterCurrency = counterCurrency;
-        Rate = rate;
+        if (rate <= 0) {
+            throw new ArgumentException("Rate must be greater than zero");
+        }
+        else
+        {
+            Rate = rate;
+        }
     }
     
     public void ReverseRate()

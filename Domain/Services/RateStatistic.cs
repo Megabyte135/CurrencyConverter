@@ -17,6 +17,10 @@ public class RateStatistic : IStatistic
     {
         ExchangeRate firstExchangeRate = ExchangeRates.First();
         ExchangeRate secondExchangeRate = ExchangeRates.Last();
+        if (firstExchangeRate == secondExchangeRate)
+        {
+            return 0;
+        }
         double firstDayRate = firstExchangeRate.Rate;
         double lastDayRate = secondExchangeRate.Rate;
         return GetChangesPercent(firstDayRate, lastDayRate);
