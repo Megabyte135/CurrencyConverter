@@ -1,6 +1,4 @@
-/bin
-/CurrencyConverterLib.csproj
-/.idea
-/obj
-/Models/.idea
-
+**/bin
+**/.idea
+**/obj
+**/.vs
