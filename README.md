@@ -1,4 +1,4 @@
-# Тема: Currency converter
+# Project: Currency converter
 ## Functional requirements
 - The system should contain a list of currencies, which, if necessary, can be replenished by indicating the full name of the currency, its abbreviation (three letters usually formed from its name), the issuing country and the exchange rate.
   - An exchange rate is created for a currency pair and indicates the cost of exchanging currency1 for currency2.
